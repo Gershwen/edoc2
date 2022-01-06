@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <div>
+    <div
+      class="wrapper"
+    >
+      <h1>
+        eDoc
+      </h1>
+      <button
+        class="sign-in"
+        variant="primary"
+      >
+        Sign in
+      </button>
+    </div>
+    <div
+      class="welcome-wrapper"
+    >
+      <h2>
+        Welcome to eDoc
+      </h2>
+      <p>
+        The application built for doctors that takes care of the paperwork so that doctors can take care of the people.
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,93 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5em 0 2.5em;
+}
+
+h1,
+h2,
+h3,
+p {
+    font-family: "Roboto", sans-serif;
+    color: #3b75d9;
+}
+
+p {
+    font-size: 1.7em;
+    line-height: 1.5em;
+}
+
+.sign-in {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #4a78d4;
+    border-radius: 10px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    color: white;
+
+}
+
+body {
+    background-image: url("../public/homepage_image2.jpg");
+}
+
+.welcome-wrapper {
+    width: 25em;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.form-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 25%;
+
+}
+
+.newuserHeading {
+    margin-top: 13px;
+    font-size: 1.2em;
+}
+
+.signup-btn {
+    margin: 15px 0 15px 0;
+}
+
+/* app styles */
+
+.btn-select-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter {
+    width: 10%;
+}
+
+.createform {
+    margin: 1em 0 1em 0;
+}
+
+.createButton {
+    margin-top: 1em;
+}
+
+.filter-logout-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.signUpOrLogIn-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.patientlist-container {
+    margin-top: 1em;
+}

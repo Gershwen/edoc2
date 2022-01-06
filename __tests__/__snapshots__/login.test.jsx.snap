@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <div>
+    <div
+      class="wrapper"
+    >
+      <h1>
+        eDoc
+      </h1>
+      <button
+        class="sign-in"
+        variant="primary"
+      >
+        Sign in
+      </button>
+    </div>
+    <div
+      class="welcome-wrapper"
+    >
+      <h2>
+        Welcome to eDoc
+      </h2>
+      <p>
+        The application built for doctors that takes care of the paperwork so that doctors can take care of the people.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders loginpage unchanged 1`] = `
+<div>
+  <div>
+    <div>
+      <h1>
+        eDoc
+      </h1>
+      <div
+        class="form-container"
+      >
+        <form
+          class=""
+        >
+          <div
+            class="mb-3"
+          >
+            <label
+              class="form-label"
+            >
+              Username
+            </label>
+            <input
+              class="form-control"
+              id="usernameLogin"
+              name="usernameLogin"
+              placeholder="Enter username"
+              type="text"
+            />
+          </div>
+          <div
+            class="mb-3"
+          >
+            <label
+              class="form-label"
+            >
+              Password
+            </label>
+            <input
+              class="form-control"
+              id="passwordLogin"
+              name="passwordLogin"
+              placeholder="Password"
+              type="password"
+            />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Sign In
+          </button>
+        </form>
+        <div>
+          <h3
+            class="newuserHeading"
+          >
+            New user?
+          </h3>
+          <a
+            href="/register"
+          >
+            Sign Up
+          </a>
+        </div>
+      </div>
+      <style>
+        
+            body {
+              background: #e8f1ff;
+              margin: 0;
+              padding: 1em;
+            }
+            h1,
+            h2,
+            h3,
+            p {
+              font-family: "Roboto", sans-serif;
+              color: #3b75d9;
+            }
+          
+      </style>
+    </div>
+  </div>
+</div>
+`;
