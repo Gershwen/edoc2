@@ -26,6 +26,7 @@ This document is meant for all users, doctor and administrator as well as develo
 This application is designed to assist doctors in managing their appoinments with patients.
 Its meant to replace all paper based appointments that will assist in keeping a log of patient visits
 and will assist the doctor in preparing for upcoming appointments.
+The primary user of the app would be the administrator who arranges the appointments. For eg. when the patients calls the doctor the admin will handle all bookings. The admin will also be able to remove and make changes to booking when needed. The doctor will have view access.
 
 # Glossary
 
@@ -44,6 +45,10 @@ Web stack - MERN Stack.
 Using MERN as it provides a complete end to end solution.
 Next.js to provide server side rendering. So that the app stays operational
 under heavy load and can run optimally even on devices with low bandwidth.
+Next.js being a React frame work will handle the frontend solution. 
+Express will be serving the backing linking the frontend to the database. 
+Express will also process all CRUD operations to make changes to the database. 
+Will be using MongoDB as the database which is a good fit as this app will be able to adapt to the needs of the users. 
 
 ## Deployment
 
