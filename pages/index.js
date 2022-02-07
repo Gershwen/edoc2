@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <div className="wrapper">
         <h1>eDoc</h1>
-        <Link href="login" passHref>
+        <Link href="/login" passHref>
           <button className="sign-in" variant="primary">
             Sign in
           </button>

@@ -23,7 +23,7 @@ const EditForm = ({
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handeEdit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Update first name</Form.Label>
             <Form.Control
               onChange={handleNewFnameChange}
@@ -33,7 +33,7 @@ const EditForm = ({
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
             <Form.Label>Update last name</Form.Label>
             <Form.Control
               onChange={handleNewLnameChange}
@@ -42,7 +42,7 @@ const EditForm = ({
               name="newLname"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3">
             <Form.Label>New date</Form.Label>
             <Form.Control
               onChange={handleNewDateChange}
@@ -52,7 +52,7 @@ const EditForm = ({
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3">
             <Form.Label>New time</Form.Label>
             <Form.Control
               onChange={handleNewTimeChange}

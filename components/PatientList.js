@@ -25,10 +25,12 @@ const PatientList = ({ data, handleDelete, handleShow }) => {
             <td>{appointment.lname}</td>
             <td>{appointment.date}</td>
             <td>{appointment.time}</td>
+            <td>
             <Button onClick={() => handleShow(appointment._id)}>edit</Button>
             <Button onClick={() => handleDelete(appointment._id)}>
               delete
             </Button>
+            </td>
           </tr>
         ))}
       </tbody>

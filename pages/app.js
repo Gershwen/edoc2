@@ -90,18 +90,16 @@ const App = ({ data }) => {
         date: date,
         time: time,
       }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-      });
+    }).then((response) => response.json());
+    // .then((result) => {
+    //   console.log(result);
+    // });
   };
 
   //function that handles the edit button
   const handleShow = (currentAppoinment) => {
     setShow(true);
     setId((id = currentAppoinment));
-    console.log(id);
   };
 
   //function that handles edit and passes updated data to the server to store in the database
@@ -126,7 +124,6 @@ const App = ({ data }) => {
       .then((res) => res.json())
       .then((response) => console.log("Success:", JSON.stringify(response)))
       .catch((error) => console.log("Error:", error));
-    console.log(currentAppoinment);
   };
 
   //function that deletes appointsments from the database
