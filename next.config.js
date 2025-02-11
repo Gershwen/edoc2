@@ -1,6 +1,5 @@
-module.exports = {
-  reactStrictMode: true,
-  experimental: {
-    dynamicIO: false, 
-  },
-}
+export const reactStrictMode = true;
+export const experimental = {
+  dynamicIO: false,
+};
+
