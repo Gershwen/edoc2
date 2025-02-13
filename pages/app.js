@@ -22,6 +22,7 @@ const App = ({ data }) => {
   const [newLname, setNewLname] = useState("");
   const [newDate, setNewDate] = useState();
   const [newTime, setNewTime] = useState();
+
   //state of ID that gets called on edit button
   const [id, setId] = useState("");
   //react-bootstrap modal state
@@ -34,42 +35,42 @@ const App = ({ data }) => {
 
   //gets first name data from input field inside CreateForm component
   const handleFnameChange = (e) => {
-    setFname((fname = e.target.value));
+    setFname(e.target.value);
   };
 
   //gets last name data from input field inside CreateForm component
   const handleLnameChange = (e) => {
-    setLname((lname = e.target.value));
+    setLname(e.target.value);
   };
 
   //gets date data from input field inside CreateForm component
   const handleDateChange = (e) => {
-    setDate((date = e.target.value));
+    setDate(e.target.value);
   };
 
   //gets time data from input field inside CreateForm component
   const handleTimeChange = (e) => {
-    setTime((time = e.target.value));
+    setTime(e.target.value);
   };
 
   //gets new first name data from input field inside EditForm component
   const handleNewFnameChange = (e) => {
-    setNewFname((newFname = e.target.value));
+    setNewFname(e.target.value);
   };
 
   //gets new last name data from input field inside EditForm component
   const handleNewLnameChange = (e) => {
-    setNewLname((newLname = e.target.value));
+    setNewLname(e.target.value);
   };
 
   //gets new date data from input field inside EditForm component
   const handleNewDateChange = (e) => {
-    setNewDate((newDate = e.target.value));
+    setNewDate(e.target.value);
   };
 
   //gets new time data from input field inside EditForm component
   const handleNewTimeChange = (e) => {
-    setNewTime((newTime = e.target.value));
+    setNewTime(e.target.value);
   };
 
   //function that sends patient data to server on submit
@@ -90,16 +91,15 @@ const App = ({ data }) => {
         date: date,
         time: time,
       }),
-    }).then((response) => response.json());
-    // .then((result) => {
-    //   console.log(result);
-    // });
+    }).then((response) => response.json())
+    .then(() => setAppointment({ fname: "", lname: "", date: "", time: "" }))
+    .catch(console.error);
   };
 
   //function that handles the edit button
   const handleShow = (currentAppoinment) => {
     setShow(true);
-    setId((id = currentAppoinment));
+    setId(currentAppoinment);
   };
 
   //function that handles edit and passes updated data to the server to store in the database
@@ -148,14 +148,20 @@ const App = ({ data }) => {
   };
 
   // //Create Appointment button function
+
+  // const handleCreateAppointment = () => {
+  //   const targetDiv = document.getElementById("createfrom");
+  //   if (targetDiv.style.display !== "none") {
+  //     targetDiv.style.display = "none";
+  //   } else {
+  //     targetDiv.style.display = "block";
+  //   }
+  // };
   const handleCreateAppointment = () => {
     const targetDiv = document.getElementById("createfrom");
-    if (targetDiv.style.display !== "none") {
-      targetDiv.style.display = "none";
-    } else {
-      targetDiv.style.display = "block";
-    }
+    targetDiv.style.display = targetDiv.style.display === "none" ? "block" : "none";
   };
+  
 
   //Log out button function
   const handleLogOut = () => {

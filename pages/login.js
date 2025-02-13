@@ -12,12 +12,12 @@ const Login = () => {
 
   //handles input from username field in login page
   const handleUsernameLoginChange = (e) => {
-    setUsernameLogin((usernameLogin = e.target.value));
+    setUsernameLogin(e.target.value);
   };
 
   //handles input from password field in login page
   const handlePasswordLoginChange = (e) => {
-    setPasswordLogin((passwordLogin = e.target.value));
+    setPasswordLogin(e.target.value);
   };
 
   //access routing capability from the useRouter hook

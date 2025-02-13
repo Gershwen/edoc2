@@ -14,7 +14,7 @@ const LoginForm = ({
   handleSignIn,
 }) => {
   return (
-    <div className="form-container">
+    (<div className="form-container">
       <Form onSubmit={handleSignIn}>
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
@@ -45,10 +45,10 @@ const LoginForm = ({
       <div>
         <h3 className="newuserHeading">New user?</h3>
         <Link href="/register" passHref>
-          <a>Sign Up</a>
+          Sign Up
         </Link>
       </div>
-    </div>
+    </div>)
   );
 };
 

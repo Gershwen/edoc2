@@ -12,23 +12,36 @@ const Register = () => {
   const [admin, setAdmin] = useState(false);
 
   //below function adds username to register form
+
+  // let handleUsernameChange = (e) => {
+  //   setUsername((username = e.target.value));
+  // };
   const handleUsernameChange = (e) => {
-    setUsername((username = e.target.value));
+    setUsername(e.target.value);
   };
 
   //below function adds password to register form
+
+  // const handlePasswordChange = (e) => {
+  //   setPassword((password = e.target.value));
+  // };
   const handlePasswordChange = (e) => {
-    setPassword((password = e.target.value));
+    setPassword(e.target.value);
   };
+  
 
   //below handler gets the value from the select options and assigns a boolean
   //value to depending on whether the user selected "admin" or "doctor".
+
+  // const handleAdminChange = (e) => {
+  //   if (e.target.value == "admin") {
+  //     setAdmin((admin = true));
+  //   } else {
+  //     setAdmin((admin = false));
+  //   }
+  // };
   const handleAdminChange = (e) => {
-    if (e.target.value == "admin") {
-      setAdmin((admin = true));
-    } else {
-      setAdmin((admin = false));
-    }
+    setAdmin(e.target.value === "admin");
   };
 
   //access routing capability from the useRouter hook

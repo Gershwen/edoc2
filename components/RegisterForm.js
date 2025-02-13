@@ -14,7 +14,7 @@ const RegisterForm = ({
   handleSignUp,
 }) => {
   return (
-    <Form onSubmit={handleSignUp} className="form-container">
+    (<Form onSubmit={handleSignUp} className="form-container">
       <Form.Group className="mb-3">
         <Form.Label>Username</Form.Label>
         <Form.Control
@@ -25,7 +25,6 @@ const RegisterForm = ({
           onChange={handleUsernameChange}
         />
       </Form.Group>
-
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
         <Form.Control
@@ -36,7 +35,6 @@ const RegisterForm = ({
           onChange={handlePasswordChange}
         />
       </Form.Group>
-
       <Form.Select
         onChange={handleAdminChange}
         aria-label="Default select example"
@@ -50,10 +48,10 @@ const RegisterForm = ({
           Sign Up
         </Button>
         <Link href="/login" passHref>
-          <a>Log in</a>
+          Log in
         </Link>
       </div>
-    </Form>
+    </Form>)
   );
 };
 

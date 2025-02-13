@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <div>
+    (<div>
       <div className="wrapper">
         <h1>eDoc</h1>
-        <Link href="/login" passHref>
+        <Link href="/login" passHref legacyBehavior>
           <button className="sign-in" variant="primary">
             Sign in
           </button>
@@ -20,7 +20,7 @@ const Home = () => {
           that doctors can take care of the people.
         </p>
       </div>
-    </div>
+    </div>)
   );
 };
 
