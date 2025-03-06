@@ -1,7 +1,7 @@
 //Styles are imported from React bootstrap
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+// import Form from "react-bootstrap/Form";
+// import Button from "react-bootstrap/Button";
+import {Button, Modal, Form} from "react-bootstrap";
 
 //This component handles the editing of existing data.
 //On edit button click a modal should pop up and provide the admin with fields
@@ -14,15 +14,18 @@ const EditForm = ({
   handleNewTimeChange,
   handleClose,
   show,
-  handeEdit,
+  handleEdit,
 }) => {
+
+
+  console.log("Modal:", Modal); // Debugging line
   return (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
       <Modal.Header closeButton>
         <Modal.Title>Enter updated details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={handeEdit}>
+        <Form onSubmit={handleEdit}>
           <Form.Group className="mb-3">
             <Form.Label>Update first name</Form.Label>
             <Form.Control

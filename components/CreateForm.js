@@ -1,8 +1,6 @@
 //styles are imported from React Bootstrap
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Button, Form, Row, Col } from "react-bootstrap";
+
 
 //This component handles the create new appointment functionality of the app.
 //It renders all the input fields for the admin to add patient details in.

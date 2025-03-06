@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/MyLayout.js";
-import Button from "react-bootstrap/Button";
+import {Button} from "react-bootstrap";
 import CreateForm from "../components/CreateForm.js";
 import PatientList from "../components/PatientList";
-import fetch from "isomorphic-unfetch";
 import EditForm from "../components/EditForm";
 
 //This component serves as application page for the admin.
@@ -92,7 +91,12 @@ const App = ({ data }) => {
         time: time,
       }),
     }).then((response) => response.json())
-    .then(() => setAppointment({ fname: "", lname: "", date: "", time: "" }))
+    .then(() => {
+      setFname("");
+      setLname("");
+      setDate("");
+      setTime("");
+    })
     .catch(console.error);
   };
 
@@ -103,11 +107,34 @@ const App = ({ data }) => {
   };
 
   //function that handles edit and passes updated data to the server to store in the database
-  const handeEdit = () => {
-    //JWT token gets passed to ensure the admin has permission to make put requests
+  // const handleEdit = () => {
+  //   //JWT token gets passed to ensure the admin has permission to make put requests
+  //   const token = sessionStorage.getItem("token");
+  //   const message = `Bearer ${token}`;
+
+  //   fetch(`/api/appointments/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: message,
+  //     },
+  //     body: JSON.stringify({
+  //       fname: newFname,
+  //       lname: newLname,
+  //       date: newDate,
+  //       time: newTime,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((response) => console.log("Success:", JSON.stringify(response)))
+  //     .catch((error) => console.log("Error:", error));
+  // };
+  const handleEdit = (e) => {
+    e.preventDefault(); // Prevents full page reload
+  
     const token = sessionStorage.getItem("token");
     const message = `Bearer ${token}`;
-
+  
     fetch(`/api/appointments/${id}`, {
       method: "PUT",
       headers: {
@@ -122,9 +149,14 @@ const App = ({ data }) => {
       }),
     })
       .then((res) => res.json())
-      .then((response) => console.log("Success:", JSON.stringify(response)))
+      .then((response) => {
+        console.log("Success:", response);
+        handleClose(); // Close the modal after a successful update
+        router.reload(); // Refresh the page to show updates
+      })
       .catch((error) => console.log("Error:", error));
   };
+  
 
   //function that deletes appointsments from the database
   const handleDelete = (currentAppoinment) => {
@@ -205,7 +237,7 @@ const App = ({ data }) => {
         show={show}
         handleClose={handleClose}
         handleShow={handleShow}
-        handeEdit={handeEdit}
+        handleEdit={handleEdit}
       />
     </Layout>
   );
