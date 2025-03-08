@@ -6,9 +6,6 @@ import CreateForm from "../components/CreateForm.js";
 import PatientList from "../components/PatientList";
 import EditForm from "../components/EditForm";
 
-//This component serves as application page for the admin.
-//this is where all the handle functions are that add functionality to all the buttons
-//inside the app page.
 
 const App = ({ data }) => {
   //state for CreateForm component
@@ -21,6 +18,7 @@ const App = ({ data }) => {
   const [newLname, setNewLname] = useState("");
   const [newDate, setNewDate] = useState();
   const [newTime, setNewTime] = useState();
+  const [selectedAppointment, setSelectedAppointment] = useState();
 
   //state of ID that gets called on edit button
   const [id, setId] = useState("");
@@ -101,37 +99,22 @@ const App = ({ data }) => {
   };
 
   //function that handles the edit button
-  const handleShow = (currentAppoinment) => {
+  const handleShow = (currentAppoinment, fname, lname, date, time) => {
     setShow(true);
     setId(currentAppoinment);
+    setSelectedAppointment({
+      id: currentAppoinment,
+      fname: fname,
+      lname: lname,
+      date: date,
+      time: time,
+    })
   };
 
-  //function that handles edit and passes updated data to the server to store in the database
-  // const handleEdit = () => {
-  //   //JWT token gets passed to ensure the admin has permission to make put requests
-  //   const token = sessionStorage.getItem("token");
-  //   const message = `Bearer ${token}`;
 
-  //   fetch(`/api/appointments/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: message,
-  //     },
-  //     body: JSON.stringify({
-  //       fname: newFname,
-  //       lname: newLname,
-  //       date: newDate,
-  //       time: newTime,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => console.log("Success:", JSON.stringify(response)))
-  //     .catch((error) => console.log("Error:", error));
-  // };
-  const handleEdit = (e) => {
-    e.preventDefault(); // Prevents full page reload
-  
+
+  const handleEdit = (formData) => {
+    
     const token = sessionStorage.getItem("token");
     const message = `Bearer ${token}`;
   
@@ -142,17 +125,17 @@ const App = ({ data }) => {
         Authorization: message,
       },
       body: JSON.stringify({
-        fname: newFname,
-        lname: newLname,
-        date: newDate,
-        time: newTime,
+        fname: formData.newFname,
+        lname: formData.newLname,
+        date: formData.newDate,
+        time: formData.newTime,
       }),
     })
       .then((res) => res.json())
       .then((response) => {
         console.log("Success:", response);
-        handleClose(); // Close the modal after a successful update
-        router.reload(); // Refresh the page to show updates
+        handleClose();
+        router.reload();
       })
       .catch((error) => console.log("Error:", error));
   };
@@ -160,8 +143,6 @@ const App = ({ data }) => {
 
   //function that deletes appointsments from the database
   const handleDelete = (currentAppoinment) => {
-    //JWT token gets passed to ensure the admin has permission to make delete requests
-
     const token = sessionStorage.getItem("token");
     const message = `Bearer ${token}`;
 
@@ -175,20 +156,9 @@ const App = ({ data }) => {
       .then((res) => res.json())
       .then((response) => console.log("Deleted", JSON.stringify(response)))
       .catch((error) => console.log("Error:", error));
-    //page will refresh when delete button is clicked
     router.reload();
   };
 
-  // //Create Appointment button function
-
-  // const handleCreateAppointment = () => {
-  //   const targetDiv = document.getElementById("createfrom");
-  //   if (targetDiv.style.display !== "none") {
-  //     targetDiv.style.display = "none";
-  //   } else {
-  //     targetDiv.style.display = "block";
-  //   }
-  // };
   const handleCreateAppointment = () => {
     const targetDiv = document.getElementById("createfrom");
     targetDiv.style.display = targetDiv.style.display === "none" ? "block" : "none";
@@ -238,6 +208,7 @@ const App = ({ data }) => {
         handleClose={handleClose}
         handleShow={handleShow}
         handleEdit={handleEdit}
+        selectedAppointment={selectedAppointment}
       />
     </Layout>
   );

@@ -2,9 +2,6 @@
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-//This component is only available to the admin.
-//is holds the delete function as well as the toggle to reveal the edit modal on click
-
 const PatientList = ({ data, handleDelete, handleShow }) => {
   return (
     <Table striped bordered hover size="sm">
@@ -26,7 +23,8 @@ const PatientList = ({ data, handleDelete, handleShow }) => {
             <td>{appointment.date}</td>
             <td>{appointment.time}</td>
             <td>
-            <Button onClick={() => handleShow(appointment._id)}>edit</Button>
+            <Button onClick={() => handleShow(appointment._id, appointment.fname, 
+              appointment.lname, appointment.date, appointment.time)}>edit</Button>
             <Button onClick={() => handleDelete(appointment._id)}>
               delete
             </Button>
