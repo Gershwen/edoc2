@@ -12,7 +12,6 @@ import connectDB from "./db.js";
 
 
 const numCPUs = os.cpus().length;
-// const PORT = process.env.PORT || 3000;
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 
@@ -80,9 +79,6 @@ const dev = process.env.NODE_ENV !== "production";
     });
 
     // 🔹 Start server
-    // app.listen(PORT, () => {
-    //   console.log(`🚀 Server ready at http://localhost:${PORT}`);
-    // });
     app.listen(PORT, "0.0.0.0", () => { // Explicitly binding to all network interfaces
       console.log(`🚀 Server ready and listening on port ${PORT}`);
     });
