@@ -29,12 +29,20 @@ const App = ({ data }) => {
 };
 
 //fetching data stored in database then passing the data as props
+// App.getInitialProps = async () => {
+//   const res = await fetch("http://localhost:3000/api/appointments");
+//   const data = await res.json();
+//   return {
+//     data: data,
+//   };
+// };
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
 App.getInitialProps = async () => {
-  const res = await fetch("http://localhost:3000/api/appointments");
+  const res = await fetch(`${API_BASE_URL}/appointments`);
   const data = await res.json();
-  return {
-    data: data,
-  };
+  return { data };
 };
+
 
 export default App;
